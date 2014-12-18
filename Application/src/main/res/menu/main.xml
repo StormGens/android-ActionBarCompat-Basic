@@ -16,6 +16,11 @@
 -->
 
 <!--
+    因为我们在使用ActionBarCompat，所以所有的关于action item的属性都是来自于ActionBarCompat的XML文件的命名
+    空间，而不是默认的android命名空间。在这里，为了向后兼容，我们增加了一个新的命名空间“support”用来让
+    action item可以使用'showAsAction'这样的属性。所使用的任何其他action item的属性都应该从“support”命名空间
+    中引用
+
     As we're using ActionBarCompat, any action item attributes come from ActionBarCompat's XML
     namespace instead of the android namespace. Here we've added a new support namespace added to
     the menu element allowing us to use the 'showAsAction' attribute in a backwards compatible way.
@@ -28,6 +33,7 @@
     <!--
         Here we create an item, setting support:showAsAction to display the item as an action if
         there's room on the compatible Action Bar.
+        我们在这里定义一个item，support:showAsAction使该item只有在Actionbar上有足够空间时候才展示。
     -->
     <item
         android:id="@+id/menu_refresh"
@@ -41,6 +47,8 @@
         Here we set the settings item to always be in the overflow menu, by setting
         support:showAsAction to never, so it is never displayed as an action item on the compatible
         Action Bar.
+        在这里，我们设定setting item 为一直呆在下拉悬浮框中，这样在兼容的Action Bar上就拥有不会被展示
+
     -->
     <item
         android:id="@+id/menu_settings"
